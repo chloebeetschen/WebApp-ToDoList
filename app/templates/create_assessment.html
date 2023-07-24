@@ -1,0 +1,41 @@
+{% extends "navbar.html" %}
+  {% block content %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }} </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+  <body>
+
+    <div class="jumbotron text-center jumbotron-fluid">
+      <h1>Create Assessments</h1>
+    </div>
+
+    <div class="formcard w-50">
+      <form action="" method="post" name="create_assessment">
+          {{ form.hidden_tag() }}
+          <p>Coursework Title<br>{{ form.title }}<br></p>
+            {% for error in form.title.errors %}
+              [{{ error }}]
+            {% endfor %}
+          <p>Module Code<br>{{ form.moduleNum }}<br></p>
+            {% for error in form.moduleNum.errors %}
+              [{{ error }}]
+            {% endfor %}
+          <p>Due Date (DD-MM-YYYY)<br>{{ form.deadline }}<br></p>
+            {% for error in form.deadline.errors %}
+              [{{ error }}]
+            {% endfor %}
+          <p>Description<br>{{ form.description }}</p>
+            {% for error in form.description.errors %}
+              [{{ error }}]
+            {% endfor %}
+          <p><input type="submit" value="Create"></p>
+        </form>
+      </div>
+    </body>
+{% endblock %}

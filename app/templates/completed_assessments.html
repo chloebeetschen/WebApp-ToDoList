@@ -1,0 +1,35 @@
+{% extends "navbar.html" %}
+{% block content %}
+        {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                        <ul>
+                                {% for message in messages %}
+                                        <li>{{ message }} </li>
+                                {% endfor %}
+                        </ul>
+                {% endif %}
+        {% endwith %}
+
+        <body>
+                <div class="jumbotron text-center jumbotron-fluid">
+                        <h1>Completed Assessments</h1>
+                </div>
+
+                {% for a in assessments %}
+
+		<div class="card w-50">
+                        <div class="card-header">
+				<h4>{{ a.title }}</h4>
+                        </div>
+                        <div class="card-body">
+                                <p>Module Code: {{ a.moduleNum }}</p>
+                                <p>Due Date: {{ a.deadline }}</p>
+                                <p>{{ a.description }}</p>
+                                <a class="btn" href={{ url_for('delete', id=a.id) }}>Delete</a>
+                        </div>
+                </div>
+
+                {% endfor %}
+        </body>
+
+{% endblock %}
