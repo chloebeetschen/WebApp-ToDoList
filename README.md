@@ -1,2 +1,12 @@
 # WebApp-ToDoList
-Web application for an assessment todo list - Flask, Python, Html, Css, JavaScript, SQL
+Web application for an assessment todo list.
+
+Client-server
+Flask
+Python - Forms and Models
+Html
+Css
+JavaScript
+SQL - Database
+
+
